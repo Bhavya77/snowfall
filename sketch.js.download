@@ -1,0 +1,90 @@
+const Bodies = Matter.Bodies
+const World = Matter.World
+const Engine = Matter.Engine
+
+var array=[]
+var array1=[]
+
+function preload(){
+
+getBackground();
+
+}
+
+function setup() {
+  createCanvas(800,400);
+ 
+
+  engine=Engine.create();
+  world=engine.world
+}
+
+function draw() {
+
+  Engine.update(engine)
+
+  background(backgroundImg); 
+ 
+  
+  blizzard();
+  blizzard2();
+//console.log(array);
+
+
+  for(var i=0;i<array.length;i++){
+
+    array[i].display()
+
+
+
+  }
+  for(var i=0;i<array1.length;i++){
+
+    array1[i].display()
+
+
+  }
+
+
+}
+function getBackground () {
+
+  bg="snow1.jpg"
+
+backgroundImg=loadImage(bg);
+}
+
+
+function blizzard(){
+
+if (frameCount%10===0){
+
+  s=new snow(random(0,800),10,random(20,40),random(20,40))
+
+
+ array.push(s)
+
+
+
+}
+
+}
+function blizzard2(){
+
+  if (frameCount%10===0){
+  
+    s1=new snow(random(0,800),10,random(20,40),random(20,40))
+  
+  
+   array1.push(s1)
+  
+  
+  
+  }
+}
+
+
+
+
+
+
